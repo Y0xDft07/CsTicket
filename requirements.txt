@@ -1,0 +1,88 @@
+###############################################################
+# 🧠 Project: CsTicket - AI Customer Support Ticket Resolver
+# 🔧 Python Version: 3.13.9
+# 📦 Updated: 2025-10-22
+###############################################################
+
+# ====== Core Libraries ======
+python-dotenv==1.0.1
+requests==2.32.3
+pandas==2.2.3
+numpy==2.2.1
+
+# ====== AI & Model Integration ======
+groq==0.27.0
+fastmcp==2.2.0
+mcp==1.9.1
+
+# ====== Web & API Framework ======
+fastapi==0.115.2
+starlette==0.46.2
+uvicorn==0.30.1
+typer==0.15.4
+sse-starlette==2.3.5
+
+# ====== Google Sheet & Auth ======
+gspread==6.2.1
+google-auth==2.40.2
+google-auth-oauthlib==1.2.2
+oauth2client==4.1.3
+oauthlib==3.2.2
+requests-oauthlib==2.0.0
+rsa==4.9.1
+
+# ====== Email & Communication ======
+smtplib3==1.0.0
+email-validator==2.2.0
+
+# ====== Image, OCR & Data Processing ======
+opencv-python-headless==4.9.0.80
+easyocr==1.7.1
+pillow==11.1.0
+matplotlib==3.10.1
+
+# ====== Parsing, Markup & UI ======
+streamlit==1.40.0
+markdown-it-py==3.0.0
+mdurl==0.1.2
+rich==14.0.0
+
+# ====== Utility & Type Safety ======
+annotated-types==0.7.0
+typing-extensions==4.13.2
+pydantic==2.11.4
+pydantic-core==2.33.2
+pydantic-settings==2.9.1
+anyio==4.9.0
+httpx==0.28.1
+httpx-sse==0.4.0
+httpcore==1.0.9
+
+# ====== Miscellaneous & Support ======
+cachetools==5.5.2
+certifi==2025.6.15
+charset-normalizer==3.3.2
+idna==3.10
+six==1.17.0
+tzdata==2025.2
+pyasn1==0.6.1
+pyasn1-modules==0.4.2
+urllib3==2.4.0
+contourpy==1.3.0
+cycler==0.12.1
+fonttools==4.58.1
+kiwisolver==1.4.8
+shellingham==1.5.4
+colorama==0.4.6
+exceptiongroup==1.3.0
+packaging==25.0
+unstructured==0.12.0
+unstructured-client==0.8.1
+marshmallow-enum==1.5.1
+openapi-pydantic==0.5.1
+
+# ====== Optional Developer Tools ======
+pytest==8.3.3
+black==24.10.0
+isort==5.13.2
+flake8==7.1.24

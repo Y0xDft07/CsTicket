@@ -1,0 +1,46 @@
+###############################################################
+# 🧠 Project: CsTicket - AI Customer Support Ticket Resolver
+# 🚀 Deployment Config (Render / Railway / Fly.io Compatible)
+# 🐍 Python Version: 3.13.9
+# 📦 Updated: 2025-10-22
+###############################################################
+
+services:
+  - type: web
+    name: ai-customer-support-ticket-resolver
+    runtime: python
+    buildCommand: |
+      echo "🚧 Memulai proses build untuk CsTicket..."
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      echo "✅ Instalasi dependensi selesai!"
+    startCommand: |
+      echo "🚀 Menjalankan aplikasi Streamlit (Main UI)"
+      streamlit run main.py --server.port $PORT --server.headless true --theme.base "light"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.9
+      - key: STREAMLIT_ENV
+        value: production
+      - key: TZ
+        value: Asia/Jakarta
+      - key: PORT
+        value: 10000
+      - key: GROQ_API_KEY
+        sync: false
+      - key: EMAIL_ADDRESS
+        sync: false
+      - key: EMAIL_APP_PASSWORD
+        sync: false
+
+# Optional: Gunakan worker service tambahan jika memakai MCP server
+  - type: worker
+    name: mcp-server
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python mcp_server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.9
+      - key: TZ
+        value: Asia/Jakarta

@@ -1,0 +1,4 @@
+GROQ_API_KEY=your_groq_api_key
+EMAIL_ADDRESS=your_email@gmail.com
+EMAIL_APP_PASSWORD=your_gmail_app_password
+GOOGLE_SHEET_CRED=google_cred.json

@@ -1,0 +1,64 @@
+{
+  // 🧠 Nama lingkungan pengembangan (akan muncul di VS Code / Codespaces)
+  "name": "Python 3.13.9 - CsTicket",
+
+  // 🐳 Menggunakan image Docker resmi Python versi 3.13 berbasis Debian Bookworm
+  // Dokumentasi: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.13-bookworm",
+
+  // ⚙️ Pengaturan tambahan (customization) untuk Codespaces dan VS Code
+  "customizations": {
+    "codespaces": {
+      // 📂 File yang otomatis terbuka saat container dijalankan
+      "openFiles": [
+        "README.md",
+        "main.py"
+      ]
+    },
+    "vscode": {
+      // ⚙️ Pengaturan VS Code
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python3.13",
+        "python.analysis.autoImportCompletions": true,
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true
+      },
+      // 🧩 Ekstensi yang otomatis diinstal
+      "extensions": [
+        "ms-python.python",            // Dukungan Python utama
+        "ms-python.vscode-pylance",    // IntelliSense & linting
+        "ms-toolsai.jupyter",          // Jupyter Notebook support
+        "streetsidesoftware.code-spell-checker" // Cek ejaan dokumen
+      ]
+    }
+  },
+
+  // 🧰 Perintah otomatis saat container dibangun atau diperbarui
+  // Memastikan semua paket sistem dan Python dependencies terinstal
+  "updateContentCommand": "sudo apt update && sudo apt upgrade -y && [ -f packages.txt ] && sudo xargs apt install -y < packages.txt; pip install --upgrade pip && [ -f requirements.txt ] && pip install -r requirements.txt && pip install streamlit && echo '✅ Semua dependensi berhasil diinstal (Python 3.13.9)!'",
+
+  // 🚀 Perintah otomatis setelah container aktif (attach)
+  // Menjalankan aplikasi Streamlit utama CsTicket
+  "postAttachCommand": {
+    "server": "streamlit run main.py --server.enableCORS false --server.enableXsrfProtection false --server.headless true"
+  },
+
+  // 🌐 Konfigurasi port agar aplikasi dapat diakses dari browser
+  "portsAttributes": {
+    "8501": {
+      "label": "Aplikasi CsTicket",
+      "onAutoForward": "openPreview"
+    }
+  },
+
+  // 🔁 Port yang diteruskan (forward) ke host lokal
+  "forwardPorts": [
+    8501
+  ],
+
+  // 🧱 Variabel environment untuk konsistensi versi dan zona waktu
+  "containerEnv": {
+    "PYTHON_VERSION": "3.13.9",
+    "TZ": "Asia/Jakarta"
+  }
+}

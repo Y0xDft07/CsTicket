@@ -60,7 +60,7 @@ CsTicket/
 ### 1. Clone Repositori
 
 ```bash
-git clone https://github.com/username/CsTicket.git
+git clone https://github.com/Y0xDft07/CsTicket.git
 cd CsTicket
 ```
 
